@@ -32,7 +32,28 @@ class Card {
 }
 ```
 
-####役判定の準備
+#### 役判定の準備
+
+まず、カードの値とスートをそれぞれ配列に格納し、値の出現回数とスートの出現回数をカウントします。
+
+```javascript
+const values = cards.map(card => card.value).sort((a, b) => {
+    const order = 'A23456789TJQK';
+    return order.indexOf(a) - order.indexOf(b);
+});
+const suits = cards.map(card => card.suit);
+const valueCounts = values.reduce((acc, val) => {
+    acc[val] = (acc[val] || 0) + 1;
+    return acc;
+}, {});
+const suitCounts = suits.reduce((acc, suit) => {
+    acc[suit] = (acc[suit] || 0) + 1;
+    return acc;
+}, {});
+```
+
+
+
 
 
 ## 前提条件
