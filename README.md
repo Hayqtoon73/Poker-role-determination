@@ -2,6 +2,9 @@
 
 このプロジェクトは、ターミナルから入力された5枚のカード情報を基にポーカーの役を判定して表示するJavaScriptプログラムです。
 
+## 判定についての考え方
+
+
 ## 前提条件
 
 - [Node.js](https://nodejs.org/) がインストールされていること
@@ -14,7 +17,3 @@
 ```sh
 git clone https://github.com/yourusername/poker-hand-evaluator.git
 cd poker-hand-evaluator
-sh```
-
-## 判定についての考え方
-
