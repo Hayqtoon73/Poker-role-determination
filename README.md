@@ -52,8 +52,49 @@ const suitCounts = suits.reduce((acc, suit) => {
 }, {});
 ```
 
+#### フラッシュとストレートの判定
+
+フラッシュ: 同じスートのカードが5枚あるかをチェックします。
+ストレート: 連続した5枚のカードであるかをチェックします。
 
 
+```javascript
+const isFlush = Object.values(suitCounts).some(count => count === 5);
+const isStraight = values.every((val, i) => {
+    if (i === 0) return true;
+    const order = 'A23456789TJQK';
+    return order.indexOf(val) - order.indexOf(values[i - 1]) === 1;
+});
+```
+
+#### 各役の判定
+
+以下の順序で役を判定します。
+
+ロイヤルフラッシュ: フラッシュかつストレートで、Aが含まれている。
+ストレートフラッシュ: フラッシュかつストレート。
+フォーカード: 同じ値のカードが4枚。
+フルハウス: 同じ値のカードが3枚と2枚。
+フラッシュ: 同じスートのカードが5枚。
+ストレート: 連続した5枚のカード。
+スリーカード: 同じ値のカードが3枚。
+ツーペア: 同じ値のカードが2枚のペアが2組。
+ワンペア: 同じ値のカードが2枚。
+ハイカード: 上記のどれにも該当しない。
+
+```javascript
+const counts = Object.values(valueCounts);
+if (isFlush && isStraight && values.includes('A')) return 'ロイヤルフラッシュ';
+if (isFlush && isStraight) return 'ストレートフラッシュ';
+if (counts.includes(4)) return 'フォーカード';
+if (counts.includes(3) && counts.includes(2)) return 'フルハウス';
+if (isFlush) return 'フラッシュ';
+if (isStraight) return 'ストレート';
+if (counts.includes(3)) return 'スリーカード';
+if (counts.filter(count => count === 2).length === 2) return 'ツーペア';
+if (counts.includes(2)) return 'ワンペア';
+return 'ハイカード（ブタ）';
+```
 
 
 ## 前提条件
