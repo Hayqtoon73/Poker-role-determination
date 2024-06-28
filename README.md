@@ -32,6 +32,9 @@ class Card {
 }
 ```
 
+####役判定の準備
+
+
 ## 前提条件
 
 - [Node.js](https://nodejs.org/) がインストールされていること
