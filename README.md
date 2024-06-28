@@ -30,7 +30,7 @@ class Card {
         this.value = value;
     }
 }
-
+```
 
 ## 前提条件
 
@@ -44,3 +44,4 @@ class Card {
 ```sh
 git clone https://github.com/yourusername/poker-hand-evaluator.git
 cd poker-hand-evaluator
+```
