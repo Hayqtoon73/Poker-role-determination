@@ -14,3 +14,6 @@
 ```sh
 git clone https://github.com/yourusername/poker-hand-evaluator.git
 cd poker-hand-evaluator
+
+## 判定についての考え方
+
